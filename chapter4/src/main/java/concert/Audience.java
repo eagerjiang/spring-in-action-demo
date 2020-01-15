@@ -1,9 +1,9 @@
 package concert;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 /**
  * @author jiangqw
@@ -12,23 +12,20 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class Audience {
 
-    @Before("execution(* concert.Performance.perform(..))")
-    public void silenceCellPhone() {
-        System.out.println("silencing cell phones");
+    @Pointcut("execution(* concert.Performance.perform(..))")
+    public void performance() {
+
     }
 
-    @Before("execution(* concert.Performance.perform(..))")
-    public void takeSeats() {
-        System.out.println("taking seats");
-    }
-
-    @After("execution(* concert.Performance.perform(..))")
-    public void applause() {
-        System.out.println("Clap Clap Clap!!!");
-    }
-
-    @AfterThrowing("execution(* concert.Performance.perform(..))")
-    public void demandRefund() {
-        System.out.println("Demanding a refund");
+    @Around("performance()")
+    public void watchPerformance(ProceedingJoinPoint proceedingJoinPoint) {
+        try {
+            System.out.println("silencing cell phones");
+            System.out.println("taking seats");
+            proceedingJoinPoint.proceed();
+            System.out.println("Clap Clap Clap!!!");
+        } catch (Throwable throwable) {
+            System.out.println("Demanding a refund");
+        }
     }
 }
