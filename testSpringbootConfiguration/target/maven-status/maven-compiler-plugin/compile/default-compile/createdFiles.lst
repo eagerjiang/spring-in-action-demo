@@ -1,0 +1,5 @@
+com\eagerjiang\Person.class
+com\eagerjiang\Application.class
+META-INF\spring-configuration-metadata.json
+com\eagerjiang\controller\HelloController.class
+com\eagerjiang\MyBean.class

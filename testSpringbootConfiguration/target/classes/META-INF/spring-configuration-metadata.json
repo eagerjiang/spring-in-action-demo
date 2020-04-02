@@ -1,0 +1,33 @@
+{
+  "groups": [
+    {
+      "name": "person",
+      "type": "com.eagerjiang.Person",
+      "sourceType": "com.eagerjiang.Person"
+    }
+  ],
+  "properties": [
+    {
+      "name": "name",
+      "type": "java.lang.String",
+      "description": "Description for name."
+    },
+    {
+      "name": "person.age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.eagerjiang.Person",
+      "defaultValue": 0
+    },
+    {
+      "name": "person.name",
+      "type": "java.lang.String",
+      "sourceType": "com.eagerjiang.Person"
+    },
+    {
+      "name": "test",
+      "type": "java.lang.String",
+      "description": "Description for test."
+    }
+  ],
+  "hints": []
+}

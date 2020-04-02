@@ -10,5 +10,4 @@ class Chapter9ApplicationTests {
     void contextLoads() {
         System.out.println();
     }
-
 }
