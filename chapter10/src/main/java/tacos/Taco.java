@@ -3,6 +3,7 @@ package tacos;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author jiangqw
@@ -12,4 +13,6 @@ import java.util.Date;
 public class Taco {
     private Long id;
     private Date createdAt;
+    private String name;
+    private List<Ingredient> ingredients;
 }
